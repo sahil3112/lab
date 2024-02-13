@@ -1,5 +1,5 @@
 #!/bin/bash
-apt -get update
+apt-get update
 apt-get install jq -y
 ufw disable
 ufw allow 6443/tcp #apiserver
