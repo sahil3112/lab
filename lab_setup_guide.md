@@ -58,4 +58,4 @@ To set up this lab certain ports need to be open in the Application Server and t
 [ThreatMapper_server_setup.sh](https://github.com/sahil3112/lab/blob/main/ThreatMapper_server_setup.sh)
 
 
-_**Note:** Run both scripts a root user_
+_**Note:** Run both scripts a root user and ThreatMapper and Application take some time to start approx 3 to 5 minutes because of pulling the images from the dockerhub and initial setup_
