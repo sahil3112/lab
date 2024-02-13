@@ -157,3 +157,55 @@ Now that all scans have been triggered, to check the status, navigate to the "vi
 
 <img width="540" alt="2024-02-13 01_58_55-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/ce289119-7c7b-4743-baa4-a6e0658e58a8">
 
+
+**Task 3: Scan Reporting**
+
+Now that all types of scans are completed, the last task is to review the scan results and generate the report of each scan to share with the Development team to address the issues identified.
+
+1. Analyse and Download the Vulnerability Scan Report:
+
+   a. In the Application Server's "view details" block, click on the "SECURITY SCAN" button, then select "Vulnerability Scan."
+
+   b. A new tab will open, displaying all the vulnerabilities reported by ThreatMapper. You can download the report by clicking on the "DOWNLOAD" button. Additionally, there is a "VIEW/DOWNLOAD SBOM" button to download the SBOM in various formats, such as CycloneDX, SPDX, and Syft.
+
+   <img width="540" alt="2024-02-13 01_55_23-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/7e002b04-baf2-4f79-a597-b842a204a396">
+   <img width="784" alt="2024-02-13 02_01_08-Vulnerability Scan Results _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/7deae1e7-ee38-493b-ae03-ec5bd4cdfdb3">
+   <img width="600" alt="2024-02-13 02_03_21-" src="https://github.com/sahil3112/lab/assets/43255158/61a2157e-e0db-461e-b645-796d50cac3ac">
+
+   **Analysis:** The Vulnerability Scan report reveals a detailed inventory of all security vulnerabilities detected in the application by open-source third-party components. It includes critical, high, medium, and low-severity vulnerabilities, providing insights into potential attack vectors that could be exploited by the Dark Kittens. The report also categorizes vulnerabilities based on the Common Vulnerabilities and Exposures (CVE) identifiers, offering a clear view of the risk level associated with each finding. The inclusion of a Software Bill of Materials (SBOM) further enhances understanding by listing all components used, making it easier to track and update vulnerable packages.
+
+2. Analyse and Download the Secret Scan Report:
+
+   a. Within the Application Server's "view details" block, click on the "SECURITY SCAN" button, then choose "Secret Scan."
+    
+   b. A new tab will appear, showing all the secrets detected by ThreatMapper. Download the report by clicking on the "DOWNLOAD" button.
+
+   <img width="779" alt="2024-02-13 02_04_06-Secret Scan Results _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/ce0df0a9-7f3c-427f-ae24-e18775b96d70">
+   
+   **Analysis:** The Secret Scan report uncovers exposed secrets such as hardcoded passwords, API keys, and tokens within the application codebase. These findings are particularly alarming as they represent direct pathways for unauthorized access by the Dark Kittens into the application backend and associated services. The report typically lists the type of secret found, its location within the code, and a severity rating based on the potential impact of exposure.
+
+3. Analyse and Download the Malware Scan Report:
+  
+   a. In the Application Server's "view details" block, click on the "SECURITY SCAN" button and then select "Malware Scan."
+
+   b. A new tab will open, listing all the malware signatures identified by ThreatMapper. The report can be downloaded by clicking on the "DOWNLOAD" button.
+
+   <img width="783" alt="2024-02-13 02_06_38-Malware Scan Results _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/13bda0ba-f32b-4c14-9a3b-0a7b981cf33b">
+
+   **Analysis:** The Malware Scan report identifies malicious software and scripts that may be injected by Dark Kittens to infiltrate the application server.
+    
+4. Analyse and Download the Posture Scan Report:
+
+   a. To download the Posture Scan report, in the Application Server's "view details" block, click on the "SECURITY SCAN" button and then select "Posture Scan."
+
+   b. A new tab will open, presenting all the compliance reports that have passed or failed. Download the report by clicking on the "DOWNLOAD" button.
+
+   <img width="779" alt="2024-02-13 02_08_13-" src="https://github.com/sahil3112/lab/assets/43255158/06ffe85f-8572-420e-b74e-61112169f8da">
+
+   **Analysis:** The Posture Scan (or Compliance Scan) report assesses the application server's configuration and security practices against established standards such as HIPAA, GDPR, PCI-DSS, and NIST frameworks. This report highlights compliance gaps, misconfigurations, and poor security practices that could lead to vulnerabilities and can be used by Dark Kittens to perform the attacks.
+
+   Other than the Reports, the Security and development team of Globomantics can take advantage of the Topology and Threat Graph to get more visibility on the Application Cluster and Threat Surface
+
+   <img width="960" alt="2024-02-13 02_11_57-" src="https://github.com/sahil3112/lab/assets/43255158/ce3e2e76-236c-4b51-a969-78d819ba7d86">
+
+   <img width="959" alt="2024-02-13 02_12_22-" src="https://github.com/sahil3112/lab/assets/43255158/6cc827d7-c320-45a1-98c3-37f896a9c808">
