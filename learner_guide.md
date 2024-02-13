@@ -83,3 +83,77 @@ You have access to the Application Server on which the application is hosted on 
     <img width="899" alt="2024-02-13 01_27_23-" src="https://github.com/sahil3112/lab/assets/43255158/4a0d1d7e-34f0-4e60-bcd5-f13c3c507f9f">
 
     **Analysis:** In the "My Connector" section, you should see 2 Linux Hosts and 1 Kubernetes Cluster listed. Note that one Linux host corresponds to the Application Server, and the other belongs to the ThreatMapper Server. This view confirms that your connectors are correctly set up and the ThreatMapper is now integrated with your Kubernetes cluster and the respective servers. 
+
+
+**Task 2: Scan the Application and Kubernetes cluster**
+
+1. On the "My Connector" page, click on the "Go to main dashboard" button. This action will take you to the main dashboard of the ThreatMapper Management Console.
+
+   <img width="957" alt="2024-02-13 01_31_44-" src="https://github.com/sahil3112/lab/assets/43255158/74530c9f-2b5c-438c-83dc-dbced23b1999">
+
+2. Next, click on the "Topology" button located on the sidebar. Then, click on the "Hosts" button and select the Application Server host. Finally, click on "view details" to get the more details about the specific host.
+
+   <img width="958" alt="2024-02-13 01_36_35-" src="https://github.com/sahil3112/lab/assets/43255158/e15bc707-78ff-4088-8ede-ee54cecde482">
+
+   <img width="539" alt="2024-02-13 01_37_48-" src="https://github.com/sahil3112/lab/assets/43255158/69278fce-1f55-4367-8e33-55247cf3b725">
+
+3. The next step involves running various types of scans on the Application to assess its security. Here are the scans you need to execute:
+
+    **a. Vulnerability Scan:** This scan will identify known vulnerable third party open source components used in the application, helping Globomantics developers to understand where they might be exposed to cyber threats by the Dark Kittens.
+
+    **b. Secret Scan:** This type of scan looks for exposed secrets, such as passwords, tokens, and API keys, which could potentially be exploited by Dark Kittens.
+
+   **c. Malware Scan:** A malware scan will search for any malicious software that might be present on the Application Server, indicating a breach by Dark Kittens.
+
+   **d. Posture Scan:** Finally, a posture scan (often referred to as a configuration or compliance scan) assesses the server against security best practices and compliance standards, identifying misconfigurations or poor security practices that could lead to vulnerabilities.
+
+4. First, let's initiate the Vulnerability Scan:
+
+   a. Click on the "Action" button, then select "Start Vulnerability Scan."
+   
+   b. In the "New Vulnerability Scan" block, select all the packages. Ensure to check the options for "Golang binary," "Rust Binary," and "Priority Scan."
+
+   c. Click the "START SCAN" button to begin the scan.
+
+   <img width="538" alt="2024-02-13 01_41_50-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/3882289d-ac4b-4f01-a4e5-579aeddcd7ee">
+   <img width="466" alt="2024-02-13 01_42_29-" src="https://github.com/sahil3112/lab/assets/43255158/18b752c7-b68a-4a03-b09e-924bac1496b3">
+
+5. Next, proceed with the Secret Scan:
+
+   a. Again, click on the "Action" button, then choose "Start Secret Scan."
+
+   b. In the "New Secret Scan" block, mark the "Priority Scan" option.
+
+   c. Click the "START SCAN" button to initiate the scan.
+
+   <img width="541" alt="2024-02-13 01_46_00-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/1d3cce2b-0cce-4ecd-8f81-92b6d12da85b">
+   <img width="181" alt="2024-02-13 01_46_33-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/1b397b5f-6acc-46e3-9e18-95172a851176">
+
+6. Now, Malware Scan:
+
+   a. Click on the "Action" button once more, then select "Start Malware Scan."
+
+   b. In the "New Malware Scan" block, ensure the "Priority Scan" is checked.
+
+   c. Click the "START SCAN" button to start the malware detection process.
+
+   <img width="541" alt="2024-02-13 01_48_08-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/0489b302-4080-4f87-a251-7675fc6a433a">
+   <img width="206" alt="2024-02-13 01_48_42-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/70d97610-bc49-4a01-8b52-5eda263b60af">
+
+7. Lastly, conduct the Posture Scan:
+
+   a. Click on the "Action" button and select "Start Posture Scan."
+   
+   b. In the "New Posture Scan" block, enable checks for "HIPAA," "GDPR," "PCI," and "NIST" compliance standards.
+
+   c. Click the "START SCAN" button to commence the scan.
+
+   <img width="480" alt="2024-02-13 01_50_50-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/3e1ea8ec-8525-4732-8994-6e1f0b22240f">
+   <img width="479" alt="2024-02-13 01_51_03-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/7d203f28-ab86-47da-9b86-393b597839a3">
+   <img width="482" alt="2024-02-13 01_51_16-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/4cb0a62f-e5da-4036-b2e3-51d726f5f951">
+   <img width="480" alt="2024-02-13 01_51_35-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/a34c52f8-b3b4-4972-b87c-8aa089836d48">
+
+Now that all scans have been triggered, to check the status, navigate to the "view details" block of the Application Server host and click on the "SECURITY SCAN" section. Note that scanning takes some time to complete, so please be patient while the system processes each scan thoroughly.
+
+<img width="540" alt="2024-02-13 01_58_55-Cloud Topology _ Deepfence — Mozilla Firefox" src="https://github.com/sahil3112/lab/assets/43255158/ce289119-7c7b-4743-baa4-a6e0658e58a8">
+
